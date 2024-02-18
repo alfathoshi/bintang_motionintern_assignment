@@ -1,16 +1,4 @@
 # deep_dive_get_cli
 
-A new Flutter project.
+![image](https://github.com/alfathoshi/bintang_motionintern_assignment/assets/134042931/4eccfff3-68c2-4c13-ae2d-ed406e80dafb)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
