@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class VegieCard extends StatelessWidget {
-  const VegieCard({super.key, required this.nama, required this.status});
+  const VegieCard({super.key, required this.nama, required this.status, required this.id});
+  final String id;
   final String nama;
   final bool status;
   @override

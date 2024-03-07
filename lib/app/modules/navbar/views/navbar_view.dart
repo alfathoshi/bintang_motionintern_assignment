@@ -1,4 +1,5 @@
 import 'package:bintang_motionintern_week_7/app/modules/home/views/home_view.dart';
+import 'package:bintang_motionintern_week_7/app/modules/kirimpermintaan/views/kirimpermintaan_view.dart';
 import 'package:bintang_motionintern_week_7/app/modules/produk/views/produk_view.dart';
 import 'package:bintang_motionintern_week_7/app/modules/profile/views/profile_view.dart';
 import 'package:bintang_motionintern_week_7/app/modules/riwayat/views/riwayat_view.dart';
@@ -13,10 +14,10 @@ class NavbarView extends GetView<NavbarController> {
   NavbarView({Key? key}) : super(key: key);
 
   final List<Widget> _pages = [
-    HomeView(),
+    const HomeView(),
     const ProdukView(),
     const RiwayatView(),
-    const ProfileView(),
+    ProfileView(),
   ];
 
   bool profile = false;
@@ -67,7 +68,7 @@ class NavbarView extends GetView<NavbarController> {
                 visible: navbarController.profile.value,
                 child: FloatingActionButton(
                   onPressed: () {
-                   
+                    Get.to(const KirimpermintaanView());
                   },
                   foregroundColor: Colors.white,
                   backgroundColor: const Color(0xFF62C172),

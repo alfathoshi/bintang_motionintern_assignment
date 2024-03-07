@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "616163291315",
+    "firebase_url": "https://vegieapps-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "vegieapps",
+    "storage_bucket": "vegieapps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:616163291315:android:ce0718028e1a9af079c0c6",
+        "android_client_info": {
+          "package_name": "com.alfathoshi.bintang_motionintern_week_7"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwKEGDp86C-HIK7xdB8UH9QxsH_8VXSNg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
