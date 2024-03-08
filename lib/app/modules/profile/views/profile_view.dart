@@ -39,26 +39,25 @@ class ProfileView extends GetView<ProfileController> {
                             const SizedBox(
                               width: 24,
                             ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  snapshot.data!.docs.first['nama'],
-                                  style: GoogleFonts.poppins(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16),
-                                ),
-                                Text(
-                                  snapshot.data!.docs.first['email'],
-                                  style: GoogleFonts.poppins(
-                                      color: Colors.white, fontSize: 12),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(
-                              width: 69,
+                            Expanded(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    snapshot.data!.docs.first['nama'],
+                                    style: GoogleFonts.poppins(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16),
+                                  ),
+                                  Text(
+                                    snapshot.data!.docs.first['email'],
+                                    style: GoogleFonts.poppins(
+                                        color: Colors.white, fontSize: 12),
+                                  ),
+                                ],
+                              ),
                             ),
                             IconButton(
                               onPressed: () {

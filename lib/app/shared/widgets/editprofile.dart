@@ -3,9 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 class ProfileEdit extends StatelessWidget {
   const ProfileEdit(
-      {super.key, required this.teks, required this.textEditingController});
+      {super.key, required this.teks, required this.textEditingController, required this.hinteks});
 
   final String teks;
+  final String hinteks;
   final TextEditingController textEditingController;
 
   @override
@@ -22,6 +23,7 @@ class ProfileEdit extends StatelessWidget {
               )),
           TextField(
             controller: textEditingController,
+            decoration: InputDecoration(hintText: hinteks),
           ),
         ],
       ),

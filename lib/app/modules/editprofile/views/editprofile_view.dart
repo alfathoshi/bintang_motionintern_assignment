@@ -40,74 +40,84 @@ class EditprofileView extends GetView<EditprofileController> {
           ),
         ),
         body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  height: 24,
-                ),
-                Center(
-                  child: Stack(
-                    alignment: Alignment.center,
+          child: StreamBuilder(
+              stream:
+                  FirebaseFirestore.instance.collection('profile').snapshots(),
+              builder: (context, snapshot) {
+                return Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Image.asset(
-                        'assets/images/ikon.png',
-                        scale: 3,
+                      const SizedBox(
+                        height: 24,
                       ),
-                      const Opacity(
-                          opacity: 0.4,
-                          child: CircleAvatar(
-                            backgroundColor: Colors.black,
-                            radius: 53,
-                          )),
-                      Image.asset(
-                        'assets/images/camera.png',
-                        scale: 3,
+                      Center(
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/images/ikon.png',
+                              scale: 3,
+                            ),
+                            const Opacity(
+                                opacity: 0.4,
+                                child: CircleAvatar(
+                                  backgroundColor: Colors.black,
+                                  radius: 53,
+                                )),
+                            Image.asset(
+                              'assets/images/camera.png',
+                              scale: 3,
+                            ),
+                          ],
+                        ),
                       ),
+                      const SizedBox(
+                        height: 32,
+                      ),
+                      ProfileEdit(
+                        teks: 'Nama',
+                        textEditingController: controller.nameC,
+                        hinteks: snapshot.data!.docs.first['nama'],
+                      ),
+                      ProfileEdit(
+                          teks: 'Email',
+                          textEditingController: controller.emailC, hinteks: snapshot.data!.docs.first['email'],),
+                      ProfileEdit(
+                          teks: 'Alamat',
+                          textEditingController: controller.alamatC, hinteks: snapshot.data!.docs.first['alamat'],),
+                      ProfileEdit(
+                          teks: 'No Telepon',
+                          textEditingController: controller.telpC, hinteks: snapshot.data!.docs.first['telp'],),
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: const Color(0xFF74DA74),
+                                foregroundColor: Colors.white,
+                                minimumSize: const Size(164, 52),
+                                shape: const RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10)))),
+                            onPressed: () {
+                              controller.updateProfile(
+                                db.doc('profile1').id,
+                                controller.nameC.text,
+                                controller.emailC.text,
+                                controller.telpC.text,
+                                controller.alamatC.text,
+                              );
+                            },
+                            child: const Text('Edit'),
+                          ),
+                        ),
+                      )
                     ],
                   ),
-                ),
-                const SizedBox(
-                  height: 32,
-                ),
-                ProfileEdit(
-                    teks: 'Nama', textEditingController: controller.nameC),
-                ProfileEdit(
-                    teks: 'Email', textEditingController: controller.emailC),
-                ProfileEdit(
-                    teks: 'Alamat', textEditingController: controller.alamatC),
-                ProfileEdit(
-                    teks: 'No Telepon',
-                    textEditingController: controller.telpC),
-                Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF74DA74),
-                          foregroundColor: Colors.white,
-                          minimumSize: const Size(164, 52),
-                          shape: const RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10)))),
-                      onPressed: () {
-                        controller.updateProfile(
-                          db.doc('profile1').id,
-                          controller.nameC.text,
-                          controller.emailC.text,
-                          controller.telpC.text,
-                          controller.alamatC.text,
-                        );
-                      },
-                      child: const Text('Edit'),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
+                );
+              }),
         ));
   }
 }

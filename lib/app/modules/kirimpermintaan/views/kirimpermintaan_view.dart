@@ -69,24 +69,30 @@ class KirimpermintaanView extends GetView<KirimpermintaanController> {
               teks: 'Nama Produk',
               textEditingController: kirimpermintaanController.nameC,
             ),
-            // RequestForm(
-            //   teks: 'Deskripsi Produk',
-            // ),
-            // RequestForm(
-            //   teks: 'Kategori',
-            // ),
-            // RequestForm(
-            //   teks: 'Harga',
-            // ),
-            // RequestForm(
-            //   teks: 'Jumlah',
-            // ),
-            // RequestForm(
-            //   teks: 'Durasi Tahan',
-            // ),
-            // RequestForm(
-            //   teks: 'Berat',
-            // ),
+            RequestForm(
+              teks: 'Deskripsi Produk',
+              textEditingController: controller.descC,
+            ),
+            RequestForm(
+              teks: 'Kategori',
+              textEditingController: controller.kategoriC,
+            ),
+            RequestForm(
+              teks: 'Harga',
+              textEditingController: controller.hargaC,
+            ),
+            RequestForm(
+              teks: 'Jumlah',
+              textEditingController: controller.jumlahC,
+            ),
+            RequestForm(
+              teks: 'Durasi Tahan',
+              textEditingController: controller.durasiC,
+            ),
+            RequestForm(
+              teks: 'Berat',
+              textEditingController: controller.beratC,
+            ),
             Center(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -97,8 +103,8 @@ class KirimpermintaanView extends GetView<KirimpermintaanController> {
                       minimumSize: const Size(double.infinity, 52),
                       shape: const RoundedRectangleBorder()),
                   onPressed: () {
-                    kirimpermintaanController
-                        .handleCreateVegie(kirimpermintaanController.nameC.text);
+                    kirimpermintaanController.handleCreateVegie(
+                        kirimpermintaanController.nameC.text);
                     Get.back();
                   },
                   child: const Text('Kirim'),

@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
 class EditprofileController extends GetxController {
   late TextEditingController nameC;
   late TextEditingController telpC;
@@ -18,7 +17,29 @@ class EditprofileController extends GetxController {
       'alamat': alamat
     };
     FirebaseFirestore.instance.collection('profile').doc(id).update(updateData);
-    Get.back();
+
+    try {
+      Get.defaultDialog(
+          title: "Berhasil!",
+          middleText: "Ubah Profile Berhasil!",
+          backgroundColor: Colors.white,
+          buttonColor: Colors.white,
+          confirmTextColor: Colors.black,
+          onConfirm: () {
+            nameC.clear();
+            emailC.clear();
+            alamatC.clear();
+            telpC.clear();
+            Get.back();
+            Get.back();
+          },
+          textConfirm: "Okay");
+    } catch (e) {
+      Get.defaultDialog(
+        title: "Gagal!",
+        middleText: "Ubah Profile Gagal!",
+      );
+    }
   }
 
   @override

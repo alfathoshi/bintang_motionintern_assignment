@@ -4,6 +4,12 @@ import 'package:get/get.dart';
 
 class KirimpermintaanController extends GetxController {
   late TextEditingController nameC;
+  late TextEditingController descC;
+  late TextEditingController kategoriC;
+  late TextEditingController hargaC;
+  late TextEditingController jumlahC;
+  late TextEditingController durasiC;
+  late TextEditingController beratC;
 
   FirebaseFirestore db = FirebaseFirestore.instance;
 
@@ -13,7 +19,14 @@ class KirimpermintaanController extends GetxController {
       'status': false,
     };
     FirebaseFirestore.instance.collection('vegie').doc().set(newVegie);
+
     nameC.clear();
+    descC.clear();
+    kategoriC.clear();
+    hargaC.clear();
+    jumlahC.clear();
+    durasiC.clear();
+    beratC.clear();
     Get.back();
   }
 
@@ -25,6 +38,12 @@ class KirimpermintaanController extends GetxController {
   void onInit() {
     // TODO: implement onInit
     nameC = TextEditingController();
+    descC = TextEditingController();
+    kategoriC = TextEditingController();
+    hargaC = TextEditingController();
+    jumlahC = TextEditingController();
+    durasiC = TextEditingController();
+    beratC = TextEditingController();
     super.onInit();
   }
 
@@ -32,6 +51,12 @@ class KirimpermintaanController extends GetxController {
   void onClose() {
     // TODO: implement onClose
     nameC.dispose();
+    descC.dispose();
+    kategoriC.dispose();
+    hargaC.dispose();
+    jumlahC.dispose();
+    durasiC.dispose();
+    beratC.dispose();
     super.onClose();
   }
 }
