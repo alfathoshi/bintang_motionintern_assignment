@@ -67,9 +67,9 @@ class VegieCard extends StatelessWidget {
                   onPressed: () {
                     kirimpermintaanController.handleDelete(id);
                   },
-                  style: const ButtonStyle(
+                  style: ButtonStyle(
                     backgroundColor: MaterialStatePropertyAll(
-                      Color(0xFF74DA74),
+                      Colors.red.shade700
                     ),
                   ),
                   child: Text(
