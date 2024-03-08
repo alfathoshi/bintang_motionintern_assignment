@@ -6,9 +6,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../controllers/kirimpermintaan_controller.dart';
 
+// ignore: must_be_immutable
 class KirimpermintaanView extends GetView<KirimpermintaanController> {
-  const KirimpermintaanView({super.key});
-
+  KirimpermintaanView({super.key});
+  KirimpermintaanController kirimpermintaanController =
+      Get.put(KirimpermintaanController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,38 +67,40 @@ class KirimpermintaanView extends GetView<KirimpermintaanController> {
                 )),
             RequestForm(
               teks: 'Nama Produk',
+              textEditingController: kirimpermintaanController.nameC,
             ),
-            RequestForm(
-              teks: 'Deskripsi Produk',
-            ),
-            RequestForm(
-              teks: 'Kategori',
-            ),
-            RequestForm(
-              teks: 'Harga',
-            ),
-            RequestForm(
-              teks: 'Jumlah',
-            ),
-            RequestForm(
-              teks: 'Durasi Tahan',
-            ),
-            RequestForm(
-              teks: 'Berat',
-            ),
+            // RequestForm(
+            //   teks: 'Deskripsi Produk',
+            // ),
+            // RequestForm(
+            //   teks: 'Kategori',
+            // ),
+            // RequestForm(
+            //   teks: 'Harga',
+            // ),
+            // RequestForm(
+            //   teks: 'Jumlah',
+            // ),
+            // RequestForm(
+            //   teks: 'Durasi Tahan',
+            // ),
+            // RequestForm(
+            //   teks: 'Berat',
+            // ),
             Center(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF74DA74),
-                    foregroundColor: Colors.white,
-                    minimumSize: const Size(double.infinity, 52),
-                    shape: const RoundedRectangleBorder(
-                      
-                    )
-                  ),
-                  onPressed: () {},
+                      backgroundColor: const Color(0xFF74DA74),
+                      foregroundColor: Colors.white,
+                      minimumSize: const Size(double.infinity, 52),
+                      shape: const RoundedRectangleBorder()),
+                  onPressed: () {
+                    kirimpermintaanController
+                        .handleCreateVegie(kirimpermintaanController.nameC.text);
+                    Get.back();
+                  },
                   child: const Text('Kirim'),
                 ),
               ),

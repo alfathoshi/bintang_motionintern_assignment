@@ -1,14 +1,44 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../data/model/profile_model.dart';
 
 class EditprofileController extends GetxController {
+  late TextEditingController nameC;
+  late TextEditingController telpC;
+  late TextEditingController alamatC;
+  late TextEditingController emailC;
 
- 
-  ProfileModel profileModel = ProfileModel(
-      alamat: 'Jl. Sukapura No. 03',
-      email: 'nataliediva@gmail.com',
-      noTelepon: '0812 3456 7890',
-      namaLengkap: 'Natalie Diva');
+  void updateProfile(
+      String id, String name, String email, String telp, String alamat) {
+    final updateData = {
+      'nama': name,
+      'email': email,
+      'telp': telp,
+      'alamat': alamat
+    };
+    FirebaseFirestore.instance.collection('profile').doc(id).update(updateData);
+    Get.back();
+  }
 
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    nameC = TextEditingController();
+    alamatC = TextEditingController();
+    emailC = TextEditingController();
+    telpC = TextEditingController();
+    super.onInit();
+  }
+
+  @override
+  void onClose() {
+    // TODO: implement onClose
+    nameC.dispose();
+    emailC.dispose();
+    emailC.dispose();
+    telpC.dispose();
+    super.onClose();
+  }
 }

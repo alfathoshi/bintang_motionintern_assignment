@@ -68,7 +68,7 @@ class NavbarView extends GetView<NavbarController> {
                 visible: navbarController.profile.value,
                 child: FloatingActionButton(
                   onPressed: () {
-                    Get.to(const KirimpermintaanView());
+                    Get.to( KirimpermintaanView());
                   },
                   foregroundColor: Colors.white,
                   backgroundColor: const Color(0xFF62C172),

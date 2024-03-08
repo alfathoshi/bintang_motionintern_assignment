@@ -1,3 +1,5 @@
+import 'package:bintang_motionintern_week_7/app/shared/widgets/editprofile.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -10,6 +12,7 @@ import '../controllers/editprofile_controller.dart';
 class EditprofileView extends GetView<EditprofileController> {
   EditprofileController editprofileController =
       Get.put(EditprofileController());
+  final db = FirebaseFirestore.instance.collection('profile');
 
   EditprofileView({super.key});
   @override
@@ -36,75 +39,74 @@ class EditprofileView extends GetView<EditprofileController> {
             },
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(
-                height: 24,
-              ),
-              Center(
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Image.asset(
-                      'assets/images/ikon.png',
-                      scale: 3,
-                    ),
-                    const Opacity(
-                        opacity: 0.4,
-                        child: CircleAvatar(
-                          backgroundColor: Colors.black,
-                          radius: 53,
-                        )),
-                    Image.asset(
-                      'assets/images/camera.png',
-                      scale: 3,
-                    ),
-                  ],
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 24,
                 ),
-              ),
-               const SizedBox(
-                height: 32,
-              ),
-              Text(
-                'Nama Lengkap',
-                style: GoogleFonts.poppins(
-                    color: const Color(0xFFAAAAAA), fontSize: 14),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              ProfileForm(teks: controller.profileModel.namaLengkap),
-              Text(
-                'Email',
-                style: GoogleFonts.poppins(
-                    color: const Color(0xFFAAAAAA), fontSize: 14),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              ProfileForm(teks: controller.profileModel.email),
-              Text(
-                'Nomor Telepon',
-                style: GoogleFonts.poppins(
-                    color: const Color(0xFFAAAAAA), fontSize: 14),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              ProfileForm(teks: controller.profileModel.noTelepon),
-              Text(
-                'Alamat',
-                style: GoogleFonts.poppins(
-                    color: const Color(0xFFAAAAAA), fontSize: 14),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              ProfileForm(teks: controller.profileModel.alamat),
-            ],
+                Center(
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/images/ikon.png',
+                        scale: 3,
+                      ),
+                      const Opacity(
+                          opacity: 0.4,
+                          child: CircleAvatar(
+                            backgroundColor: Colors.black,
+                            radius: 53,
+                          )),
+                      Image.asset(
+                        'assets/images/camera.png',
+                        scale: 3,
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 32,
+                ),
+                ProfileEdit(
+                    teks: 'Nama', textEditingController: controller.nameC),
+                ProfileEdit(
+                    teks: 'Email', textEditingController: controller.emailC),
+                ProfileEdit(
+                    teks: 'Alamat', textEditingController: controller.alamatC),
+                ProfileEdit(
+                    teks: 'No Telepon',
+                    textEditingController: controller.telpC),
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF74DA74),
+                          foregroundColor: Colors.white,
+                          minimumSize: const Size(164, 52),
+                          shape: const RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)))),
+                      onPressed: () {
+                        controller.updateProfile(
+                          db.doc().id,
+                          controller.nameC.text,
+                          controller.emailC.text,
+                          controller.telpC.text,
+                          controller.alamatC.text,
+                        );
+                      },
+                      child: const Text('Edit'),
+                    ),
+                  ),
+                )
+              ],
+            ),
           ),
         ));
   }

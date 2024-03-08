@@ -1,15 +1,12 @@
-import 'package:bintang_motionintern_week_7/app/modules/kirimpermintaan/controllers/kirimpermintaan_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-// ignore: must_be_immutable
-class RequestForm extends StatelessWidget {
-  RequestForm(
+class ProfileEdit extends StatelessWidget {
+  const ProfileEdit(
       {super.key, required this.teks, required this.textEditingController});
-  final TextEditingController textEditingController;
+
   final String teks;
-  // final String desc;
+  final TextEditingController textEditingController;
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +15,11 @@ class RequestForm extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            teks,
-            style: GoogleFonts.poppins(
-                fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold),
-          ),
+          Text(teks,
+              style: GoogleFonts.poppins(
+                fontSize: 14,
+                color: Color(0xFFAAAAAA),
+              )),
           TextField(
             controller: textEditingController,
           ),

@@ -44,7 +44,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.PRODUK,
-      page: () => const ProdukView(),
+      page: () =>  const ProdukView(),
       binding: ProdukBinding(),
     ),
     GetPage(
@@ -64,7 +64,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.KIRIMPERMINTAAN,
-      page: () => const KirimpermintaanView(),
+      page: () =>  KirimpermintaanView(),
       binding: KirimpermintaanBinding(),
     ),
   ];

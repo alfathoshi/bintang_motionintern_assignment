@@ -1,11 +1,17 @@
+import 'package:bintang_motionintern_week_7/app/modules/kirimpermintaan/controllers/kirimpermintaan_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class VegieCard extends StatelessWidget {
-  const VegieCard({super.key, required this.nama, required this.status, required this.id});
+  VegieCard(
+      {super.key, required this.nama, required this.status, required this.id});
   final String id;
   final String nama;
   final bool status;
+
+  KirimpermintaanController kirimpermintaanController =
+      Get.put(KirimpermintaanController());
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -57,14 +63,16 @@ class VegieCard extends StatelessWidget {
             child: Align(
                 alignment: Alignment.centerRight,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    kirimpermintaanController.handleDelete(id);
+                  },
                   style: const ButtonStyle(
                     backgroundColor: MaterialStatePropertyAll(
                       Color(0xFF74DA74),
                     ),
                   ),
                   child: Text(
-                    'Detail',
+                    'Hapus',
                     style: GoogleFonts.poppins(color: Colors.white),
                   ),
                 )),
