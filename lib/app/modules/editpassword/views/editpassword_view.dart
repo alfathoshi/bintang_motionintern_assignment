@@ -55,8 +55,8 @@ class EditpasswordView extends GetView<EditpasswordController> {
                 ? null
                 : ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        
-                        backgroundColor: Colors.green),
+                        backgroundColor: Colors.green,
+                        foregroundColor: Colors.white),
                     onPressed: () {},
                     child: const Text(
                       'Simpan',
