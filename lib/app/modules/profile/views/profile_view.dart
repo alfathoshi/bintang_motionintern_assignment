@@ -1,10 +1,8 @@
 import 'package:bintang_motionintern_week_7/app/modules/editpassword/views/editpassword_view.dart';
 import 'package:bintang_motionintern_week_7/app/modules/editprofile/views/editprofile_view.dart';
 import 'package:bintang_motionintern_week_7/app/shared/widgets/profileCard.dart';
-import 'package:bintang_motionintern_week_7/app/shared/widgets/profileform.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';

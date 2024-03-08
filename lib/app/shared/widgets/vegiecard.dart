@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// ignore: must_be_immutable
 class VegieCard extends StatelessWidget {
   VegieCard(
       {super.key, required this.nama, required this.status, required this.id});

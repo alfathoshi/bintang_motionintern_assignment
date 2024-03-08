@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../shared/widgets/profileform.dart';
 import '../controllers/editprofile_controller.dart';
 
 // ignore: must_be_immutable
 class EditprofileView extends GetView<EditprofileController> {
   EditprofileController editprofileController =
       Get.put(EditprofileController());
+
   final db = FirebaseFirestore.instance.collection('profile');
 
   EditprofileView({super.key});
@@ -94,7 +94,7 @@ class EditprofileView extends GetView<EditprofileController> {
                                   BorderRadius.all(Radius.circular(10)))),
                       onPressed: () {
                         controller.updateProfile(
-                          db.doc().id,
+                          db.doc('profile1').id,
                           controller.nameC.text,
                           controller.emailC.text,
                           controller.telpC.text,
